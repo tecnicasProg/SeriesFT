@@ -5,13 +5,36 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Lambert {
-	public Iterator<Double> getTermos(){
-		// TODO:
-		throw new UnsupportedOperationException();
+
+	List<Double> lista;
+
+	public Lambert(){
+		lista = new ArrayList<>();
 	}
-	
+
+	public Iterator<Double> getTermos(){
+		return lista.iterator();
+	}
+
 	public double W0(double x) {
-		// TODO:
-		throw new UnsupportedOperationException();
+
+		if( Math.abs(x) < Math.E)
+			throw new IllegalArgumentException();
+
+		List<Double> lista = new ArrayList<>();
+		double last = 0;
+		double limite = 10E-6;
+		int n = 1;
+
+		while(true){
+			 last = (Math.pow(-n, n-1)/ Util.fatorial(n)) * Math.pow(x,n);
+			 if(last < limite)
+			 		break;
+			 lista.add(last);
+		}
+
+		this.lista = lista;
+
+		return Util.somatorio(0, lista.size(), lista);
 	}
 }
