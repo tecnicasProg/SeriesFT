@@ -7,9 +7,11 @@ import java.util.List;
 public class Lambert {
 
 	List<Double> lista;
+	double limite;
 
 	public Lambert(){
 		lista = new ArrayList<>();
+		limite = 10E-6;
 	}
 
 	public Iterator<Double> getTermos(){
@@ -23,7 +25,6 @@ public class Lambert {
 
 		List<Double> lista = new ArrayList<>();
 		double last = 0;
-		double limite = 10E-6;
 		int n = 1;
 
 		while(true){
